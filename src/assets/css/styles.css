@@ -1,0 +1,13 @@
+table {
+  font-size: 0.8125rem;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: white;
+  padding: 1rem;
+}
