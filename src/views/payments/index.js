@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Col, Container, Row, Table } from 'react-bootstrap'
+import { Badge, Card, Col, Container, Row, Table } from 'react-bootstrap'
 import LoadMore from '../../components/LoadMore'
 import TransactionsHeader from '../../components/TransactionsHeader'
 import { useGetPaymentsByPageIndexQuery, useGetPaymentsQuery } from '../../services/payments'
-import { getStatus } from '../../utils'
+import { getBadgeStyle, getStatus } from '../../utils'
 
 const Payments = () => {
   const { data: paymentsList } = useGetPaymentsQuery()
@@ -87,7 +87,8 @@ const Payments = () => {
                       <td>{payment.paymentDate}</td>
                       <td>{payment.fromAccount.accountName}</td>
                       <td>{payment.toAccaunt.accountName}</td>
-                      <td>{getStatus(payment.paymentStatus)}</td>
+                      <td>
+                        <Badge bg={getBadgeStyle(payment.paymentStatus)}>{getStatus(payment.paymentStatus)}</Badge></td>
                     </tr>
                   ))}
                 </tbody>

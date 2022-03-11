@@ -4,4 +4,10 @@ const getStatus = statusCode => {
   return 'Pending Approval'
 }
 
-export { getStatus }
+const getBadgeStyle = statusCode => {
+  if(statusCode === 'A') return 'success'
+  if(statusCode === 'C') return 'danger'
+  return 'warning'
+}
+
+export { getStatus, getBadgeStyle }
