@@ -22,13 +22,13 @@ Builds the app for production to the `build` folder
 
 ### Project Structure
 
-`components` - contains shared components
-`assets` - contains static assets like css, images etc
-`config` - contains basic application configuration
-`services` - contains functions to handle async web apis
-`store` - entry point for redux store
-`utils` - contains shared helper functions
-`views` - contains wrapper components that relates to a specific route
+- `components` - contains shared components
+- `assets` - contains static assets like css, images etc
+- `config` - contains basic application configuration
+- `services` - contains functions to handle async web apis
+- `store` - entry point for redux store
+- `utils` - contains shared helper functions
+- `views` - contains wrapper components that relates to a specific route
 
 ### Info
 
@@ -46,3 +46,4 @@ Builds the app for production to the `build` folder
 - can be modularised even more
 - scss can be used instead of css
 - ux can be improved
+- documentation can be improved
