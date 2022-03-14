@@ -1,7 +1,8 @@
 ## Server Setup
 
 Clone the project from [https://github.com/Frontend-Interview-Test/test/raw/main/Natwest%20Frontend%20Code%20Test.zip]
-Run `npm install` followed by `npm start` which will run the api server in port [http://localhost:9000]
+
+Run `npm install` followed by `npm start` which will run the api server in port [http://localhost:9001]
 
 ## Installation Instructions
 
