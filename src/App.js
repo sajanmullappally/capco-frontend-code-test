@@ -1,7 +1,8 @@
 import ErrorBoundary from "./components/ErrorBoundary";
 import Payments from "./views/payments";
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
       <ErrorBoundary>

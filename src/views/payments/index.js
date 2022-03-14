@@ -58,10 +58,6 @@ const Payments = () => {
     setFilter(filter)
   }
 
-  useEffect(() => {
-    console.log(error)
-  }, [error])
-
   return(
     <Container>
       <Row>
@@ -75,7 +71,7 @@ const Payments = () => {
           {!isError && <Card className='my-5'>
             <TransactionsHeader filterData={filter => filterData(filter)} />
             <Card.Body>
-              <Table>
+              <Table role="table">
                 <thead>
                   <tr>
                     {tableHeaders.map((h, i) => (

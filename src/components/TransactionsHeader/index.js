@@ -9,9 +9,9 @@ const TransactionsHeader = (props) => {
       <Row className='align-items-center'>
         <Col>Transactions</Col>
         <Col>
-        <Form.Select aria-label="Status" onChange={(e) => filterData(e.target.value)}>
+        <Form.Select role="select" aria-label="Status" onChange={(e) => filterData(e.target.value)}>
           {transactionFilters.map((filter, i) => (
-            <option key={`transFilter${i}`} value={filter.value}>{filter.label}</option>
+            <option key={`transFilter${i}`} value={filter.value} data-testid={filter.label}>{filter.label}</option>
           ))}
         </Form.Select>
         </Col>
