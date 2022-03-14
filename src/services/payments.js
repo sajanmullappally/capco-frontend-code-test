@@ -6,7 +6,7 @@ export const paymentsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
   endpoints: (builder) => ({
     getPayments: builder.query({
-      query: () => `Payments`,
+      query: () => `payments`,
     }),
     getPaymentsByPageIndex: builder.query({
       query: (pageIndex) => `payments?pagelndex=${pageIndex}`,

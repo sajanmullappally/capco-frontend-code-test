@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Badge, Card, Col, Container, Row, Table } from 'react-bootstrap'
+import { Badge, Card, Col, Container, Row, Table, Alert } from 'react-bootstrap'
 import LoadMore from '../../components/LoadMore'
 import TransactionsHeader from '../../components/TransactionsHeader'
+import { tableHeaders } from '../../constants'
 import { useGetPaymentsByPageIndexQuery, useGetPaymentsQuery } from '../../services/payments'
 import { getBadgeStyle, getStatus } from '../../utils'
 
 const Payments = () => {
-  const { data: paymentsList } = useGetPaymentsQuery()
+  const { data: paymentsList, error, isError } = useGetPaymentsQuery()
   const [payments, setPayments] = useState([])
   const [filteredPayments, setFilteredPayments] = useState([])
   const [filter, setFilter] = useState('')
@@ -57,24 +58,29 @@ const Payments = () => {
     setFilter(filter)
   }
 
+  useEffect(() => {
+    console.log(error)
+  }, [error])
+
   return(
     <Container>
       <Row>
         <Col>
-          <Card className='my-5'>
+          {isError && <Alert variant="danger" className='my-5'>
+            <Alert.Heading>Error!</Alert.Heading>
+            <p>
+              {error.error}
+            </p>
+          </Alert>}
+          {!isError && <Card className='my-5'>
             <TransactionsHeader filterData={filter => filterData(filter)} />
             <Card.Body>
               <Table>
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>Amount</th>
-                    <th>Currency</th>
-                    <th>Type</th>
-                    <th>Date</th>
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Status</th>
+                    {tableHeaders.map((h, i) => (
+                      <th key={`th${i}`}>{h}</th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
@@ -95,7 +101,7 @@ const Payments = () => {
               </Table>
               <LoadMore loadMorePayments={loadMorePayments} isLoadingNext={isLoadingNext} />
             </Card.Body>
-          </Card>
+          </Card>}
         </Col>
       </Row>
     </Container>

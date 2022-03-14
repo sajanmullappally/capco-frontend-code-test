@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Col, Form, Row } from 'react-bootstrap'
+import { transactionFilters } from '../../constants'
 
 const TransactionsHeader = (props) => {
   const { filterData } = props
@@ -9,10 +10,9 @@ const TransactionsHeader = (props) => {
         <Col>Transactions</Col>
         <Col>
         <Form.Select aria-label="Status" onChange={(e) => filterData(e.target.value)}>
-          <option value="">All</option>
-          <option value="A">Approved</option>
-          <option value="C">Cancelled</option>
-          <option value="P">Pending Approval</option>
+          {transactionFilters.map((filter, i) => (
+            <option key={`transFilter${i}`} value={filter.value}>{filter.label}</option>
+          ))}
         </Form.Select>
         </Col>
       </Row>
